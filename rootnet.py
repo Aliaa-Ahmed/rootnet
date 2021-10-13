@@ -6,7 +6,7 @@ import os.path as osp
 
 class rootnet:
     def lood_model(path):
-        model_path = './snapshot_%d.pth.tar' % int(18)
+        model_path = path
         assert osp.exists(model_path), 'Cannot find model at ' + model_path
         print('Load checkpoint from {}'.format(model_path))
         model = get_pose_net(cfg, False)
