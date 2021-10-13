@@ -10,7 +10,7 @@ class rootnet:
         assert osp.exists(model_path), 'Cannot find model at ' + model_path
         print('Load checkpoint from {}'.format(model_path))
         model = get_pose_net(cfg, False)
-        model = DataParallel(model).cpu()
+        model = DataParallel(model).cuda()
         ckpt = torch.load(model_path)
         model.load_state_dict(ckpt['network'])
         model.eval();
